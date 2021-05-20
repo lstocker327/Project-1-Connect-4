@@ -1,0 +1,37 @@
+#board{
+  display: flex;
+  flex-wrap: wrap;
+  background: blue;
+  height: 650px;
+  width: 700px;
+  margin: 0 auto;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.circle{
+  width: 10%;
+  height: 10%;
+  border-radius: 40px;
+  margin: 2%;
+}
+
+.white{
+  background: white;
+}
+
+.red{
+  background: red;
+}
+
+.yellow{
+  background: yellow;
+}
+
+
+/* buttons[0].addEventListener('click', changeColumnColor(0));
+buttons[1].addEventListener('click', changeColumnColor(1));
+buttons[2].addEventListener('click', changeColumnColor(2));
+buttons[3].addEventListener('click', changeColumnColor(3));
+buttons[4].addEventListener('click', changeColumnColor(4));
+buttons[5].addEventListener('click', changeColumnColor(5)); */
