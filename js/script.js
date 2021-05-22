@@ -9,6 +9,7 @@ CACHED DOM NODES
  const row5 = document.querySelectorAll(".row5");
  const row6 = document.querySelectorAll(".row6");
  const circle1 = document.querySelector("#circle1");
+ const winDisplay = document.querySelector("h3");
 /*=======================
 GLOBAL VARS
 ====================*/
@@ -21,20 +22,23 @@ boardArray = [];
   boardArray[5] = row1;
 
 turn = "red";
+win = false;
+let numRows = 6;
+let numColumns= 7;
 /*===========================
 FUNCTIONS
 =============================*/
 function changeColumnColor(column){  //changes color of topmost uncolored circle div in column to red or yellow
-
   for(const row of boardArray){
-    if (row[column].className.includes("white")){
+    if (row[column].className.includes("white")){ //if circle div includes class white change the color to the color of "turn"
       row[column].classList.add(turn);
       row[column].classList.remove("white");
       break;
     }
   }
-
   changeTurn();
+  winCondition();
+  //test();
 }
 
 function changeTurn() { //changes turn
@@ -44,6 +48,76 @@ function changeTurn() { //changes turn
     turn = 'red';
   }
 }
+
+function winCheckRow(){
+   let winRedCounter = 0;
+  let winYellowCounter = 0;
+
+  for(const row of boardArray){
+    for(const column of row){
+      if (column.className.includes("red")){
+        winRedCounter += 1;
+        winYellowCounter = 0;
+      } else if(column.className.includes("yellow")) {
+        winYellowCounter += 1;
+        winRedCounter = 0;
+      } else if (column.className.includes("white")) {
+        winYellowCounter = 0;
+        winRedCounter = 0;
+      }
+      if (winRedCounter >= 4 || winYellowCounter >= 4){
+        win = true;
+      }
+
+    }
+    winYellowCounter = 0;
+    winRedCounter = 0;
+  }
+}
+
+function winCheckColumn(){
+    let winRedCounter = 0;
+    let winYellowCounter = 0;
+
+    for(let i = 0; i < 7; i++){
+      for(let j = 0; j < 6; j++){
+        console.log("j is " + j);
+        console.log("i is " + i);
+        console.log(`winRedCounter is ${winRedCounter}`);
+        console.log(`winYellowCounter is ${winYellowCounter}`);
+        if (boardArray[j][i].className.includes("red")){
+          winRedCounter += 1;
+          winYellowCounter = 0;
+        }else if (boardArray[j][i].className.includes("yellow")){
+          winYellowCounter += 1;
+          winRedCounter = 0;
+        }else if (boardArray[j][i].className.includes("white")){
+          winYellowCounter = 0;
+          winRedCounter = 0;
+        }
+        if (winRedCounter >= 4 || winYellowCounter >= 4){
+          win = true;
+        }
+
+      }
+      winYellowCounter = 0;
+      winRedCounter = 0;
+    }
+}
+
+function winCheckDiagonal(){
+  
+}
+
+
+function winCondition(){
+  winCheckRow();
+  winCheckColumn();
+  if (win === true){
+    winDisplay.innerHTML = "Win";
+  }
+}
+
 /*=============================
 EVENT LISTENERS
 ===============================*/

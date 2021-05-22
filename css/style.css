@@ -27,11 +27,3 @@
 .yellow{
   background: yellow;
 }
-
-
-/* buttons[0].addEventListener('click', changeColumnColor(0));
-buttons[1].addEventListener('click', changeColumnColor(1));
-buttons[2].addEventListener('click', changeColumnColor(2));
-buttons[3].addEventListener('click', changeColumnColor(3));
-buttons[4].addEventListener('click', changeColumnColor(4));
-buttons[5].addEventListener('click', changeColumnColor(5)); */
