@@ -8,7 +8,6 @@ CACHED DOM NODES
  const row4 = document.querySelectorAll(".row4");
  const row5 = document.querySelectorAll(".row5");
  const row6 = document.querySelectorAll(".row6");
- const circle1 = document.querySelector("#circle1");
  const winDisplay = document.querySelector("h3");
 /*=======================
 GLOBAL VARS
@@ -79,12 +78,12 @@ function winCheckColumn(){
     let winRedCounter = 0;
     let winYellowCounter = 0;
 
-    for(let i = 0; i < 7; i++){
+    for(let i = 0; i < 6; i++){
       for(let j = 0; j < 6; j++){
-        console.log("j is " + j);
-        console.log("i is " + i);
-        console.log(`winRedCounter is ${winRedCounter}`);
-        console.log(`winYellowCounter is ${winYellowCounter}`);
+        //console.log("j is " + j);
+        //console.log("i is " + i);
+        //console.log(`winRedCounter is ${winRedCounter}`);
+        //console.log(`winYellowCounter is ${winYellowCounter}`);
         if (boardArray[j][i].className.includes("red")){
           winRedCounter += 1;
           winYellowCounter = 0;
@@ -106,13 +105,78 @@ function winCheckColumn(){
 }
 
 function winCheckDiagonal(){
-  
+  let length = boardArray.length;
+  let diagonalLines = (length + length) - 1;
+  let midPoint = (diagonalLines / 2) + 1;
+  let itemsInDiagonal = 0;
+  let rowIndex = 0;
+  let columnIndex = 0;
+  let winRedCounter = 0;
+  let winYellowCounter = 0;
+
+  for (let i = 1; i <= diagonalLines; i++) {
+
+    if (i <= midPoint) {
+      itemsInDiagonal++;
+      for (let j = 0; j < itemsInDiagonal; j++) {
+        rowIndex = (i - j) - 1;
+        columnIndex = j;
+        console.log("i is " + i);
+        console.log("j is "+ j);
+        console.log("row is" + rowIndex);
+        console.log("column is" + columnIndex);
+        console.log(`winRedCounter is ${winRedCounter}`);
+        console.log(`winYellowCounter is ${winYellowCounter}`);
+        if (boardArray[rowIndex][columnIndex].className.includes("red")){
+          winRedCounter += 1;
+          winYellowCounter = 0;
+        }else if (boardArray[rowIndex][columnIndex].className.includes("yellow")){
+          winYellowCounter += 1;
+          winRedCounter = 0;
+        }else if (boardArray[rowIndex][columnIndex].className.includes("white")){
+          winYellowCounter = 0;
+          winRedCounter = 0;
+        }
+        if (winRedCounter >= 4 || winYellowCounter >= 4){
+          win = true;
+        }
+      }
+    } else {
+        itemsInDiagonal--;
+        for (let j = 0; j < itemsInDiagonal; j++) {
+          rowIndex = (length - 1) - j;
+          columnIndex = (i - length) + j;
+          console.log("i is " + i);
+          console.log("j is "+ j);
+          console.log("row is" + rowIndex);
+          console.log("column is" + columnIndex);
+          console.log(`winRedCounter is ${winRedCounter}`);
+          console.log(`winYellowCounter is ${winYellowCounter}`);
+          if (boardArray[rowIndex][columnIndex].className.includes("red")){
+            winRedCounter += 1;
+            winYellowCounter = 0;
+          }else if (boardArray[rowIndex][columnIndex].className.includes("yellow")){
+            winYellowCounter += 1;
+            winRedCounter = 0;
+          }else if (boardArray[rowIndex][columnIndex].className.includes("white")){
+            winYellowCounter = 0;
+            winRedCounter = 0;
+          }
+          if (winRedCounter >= 4 || winYellowCounter >= 4){
+            win = true;
+          }
+        }
+      }
+      winRedCounter = 0;
+      winYellowCounter = 0;
+    }
 }
 
 
 function winCondition(){
   winCheckRow();
   winCheckColumn();
+  winCheckDiagonal();
   if (win === true){
     winDisplay.innerHTML = "Win";
   }
@@ -139,18 +203,3 @@ buttons[4].addEventListener('click',function(){
 buttons[5].addEventListener('click',function(){
   changeColumnColor(5);
 });
-buttons[6].addEventListener('click',function(){
-  changeColumnColor(6);
-});
-
-
-// function changeColumnColor(column){  //changes color of topmost uncolored circle div in column to red or yellow
-//
-//
-//   if(boardArray[0][column].className.includes("white")){
-//     boardArray[0][column].classList.add(turn);
-//     boardArray[0][column].classList.remove("white");
-//   }
-//
-//   changeTurn();
-// }

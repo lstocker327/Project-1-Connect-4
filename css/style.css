@@ -2,16 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   background: blue;
-  height: 650px;
-  width: 700px;
+  height: 640px;
+  width: 600px;
   margin: 0 auto;
   justify-content: space-around;
   padding: 10px;
 }
 
 .circle{
-  width: 10%;
-  height: 10%;
+  width: 12.5%;
+  height: 12.5%;
   border-radius: 40px;
   margin: 2%;
 }
@@ -26,4 +26,9 @@
 
 .yellow{
   background: yellow;
+}
+
+button{
+  width: 20px;
+  height: 20px;
 }
