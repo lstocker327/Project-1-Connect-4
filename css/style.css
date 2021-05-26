@@ -1,14 +1,36 @@
+*{
+
+}
+
+body{
+  background: url("https://store-images.s-microsoft.com/image/apps.41929.14246448385562777.7795b656-4cc6-43e1-897f-ecca74691263.ce6424bf-ec09-434a-9a0d-6d9507621cfa?mode=scale&q=90&h=1080&w=1920");
+  background-size: cover;
+  background-position: center;
+
+}
+
 #board{
   display: flex;
   flex-wrap: wrap;
   background: blue;
+  right: 50%;
+  left: 50%;
+  top: 10%;
+  transform: translateY(-60%);
   height: 640px;
   width: 600px;
   margin: 0 auto;
   justify-content: space-around;
   padding: 10px;
-}
+  border-radius: 15px;
+  box-shadow: 5px 2.5px 10px rgba(0, 0, 0, 0.75);
+  text-align: center;
+  z-index: 99;
 
+}
+.open{
+  visibility: hidden;
+}
 .circle{
   width: 12.5%;
   height: 12.5%;
@@ -28,7 +50,68 @@
   background: yellow;
 }
 
-button{
+.button{
   width: 20px;
   height: 20px;
+}
+
+#startGame{
+  width: 240px;
+  height: 60px;
+  position: absolute;
+  left: 62%;
+  top: 23%;
+  background: black;
+  color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal{
+  background: pink;
+  padding: 5px;
+  margin: 0 auto;
+  width: 30%;
+  border-radius: 10px;
+  font-size: 20px;
+  box-shadow: 5px 2.5px 10px rgba(0, 0, 0, 0.75);
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-weight: bold;
+}
+.modal > #modalHeading{
+  text-align: center;
+}
+.modal >h1 > img {
+  height: 100px;
+  width: 400px;
+}
+#modalButton{
+  position: relative;
+  left: 50%;
+  right: 50%;
+  background-color: pink;
+  font: red;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 20px;
+}
+.inputModal{
+  margin: 5px;
+}
+#gameInfo{
+    background: blue;
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+    font-family: 'DotGothic16', sans-serif;
+    padding: 10px;
+}
+#reset{
+  position: relative;
+  left: 30%;
+  right: 70%;
+  font-family: 'DotGothic16', sans-serif;
+  background: blue;
 }

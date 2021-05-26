@@ -7,11 +7,42 @@
 	<title>Connect 4</title>
 	<link href="./css/style.css" rel="stylesheet" type="text/css" />
   <script defer src="./js/script.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
 </head>
 
 <body>
+	<button id = "startGame">START GAME</button>
 
-  <section id="board">
+	<div class = "modal open">
+		<h1 id="modalHeading"><img src="https://famfonts.com/wp-content/uploads/connect-four-wide.png"></h1>
+		<h1> Instructions </h1>
+		<p>
+			1)When its your turn click the button to play in the corresponding column.
+			<br/>
+			2)Try to get 4 of your color in a row!
+		</p>
+		<p>
+		Input your names below:
+	  </p>
+		<p>
+		<input class="inputModal" id="inputModal1">Player1</input>
+		<br/>
+		<input class="inputModal" id="inputModal2">Player2</input>
+	  </p>
+		<button id="modalButton">Begin</button>
+	</div>
+	<section id="gameInfo" class="open">
+		<h3 id="player1">Player 1</h3>
+		<h3 id="player2">Player 2</h3>
+		<h3 id="playerTurn"></h3>
+		<button id="reset">Reset</button>
+	</section>
+	<section id="board" class="open">
     <div class= "circle white row1">
     </div>
     <div class= "circle white row1">
@@ -97,5 +128,5 @@
     <button class="button">
     </button>
   </section>
-	<h3>game ongoing</h3>
+
 </body>
