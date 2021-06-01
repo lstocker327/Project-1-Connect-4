@@ -4,8 +4,8 @@
 
 body{
   background: url("https://store-images.s-microsoft.com/image/apps.41929.14246448385562777.7795b656-4cc6-43e1-897f-ecca74691263.ce6424bf-ec09-434a-9a0d-6d9507621cfa?mode=scale&q=90&h=1080&w=1920");
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  /* background-position: center; */
 
 }
 
@@ -19,7 +19,7 @@ body{
   transform: translateY(-60%);
   height: 640px;
   width: 600px;
-  margin: 0 auto;
+  margin: 10px auto;
   justify-content: space-around;
   padding: 10px;
   border-radius: 15px;
@@ -78,13 +78,14 @@ body{
   box-shadow: 5px 2.5px 10px rgba(0, 0, 0, 0.75);
   font-family: 'Pathway Gothic One', sans-serif;
   font-weight: bold;
+  z-index: 1;
 }
 .modal > #modalHeading{
   text-align: center;
 }
 .modal >h1 > img {
-  height: 100px;
-  width: 400px;
+  height: 15%;
+  width: 80%;
 }
 #modalButton{
   position: relative;

@@ -292,6 +292,7 @@ function setPlayerTurn(){
 function resetGame() {
   win = "false";
   turn = "red";
+  setPlayerTurn();
   for(const row of boardArray){
     for(const column of row){
       column.classList.add("white");
